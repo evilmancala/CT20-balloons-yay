@@ -1,0 +1,43 @@
+https://editor.p5js.org/evilmancala/sketches/SIkn_yAqd
+
+let bg;
+function preload() {
+bg = loadImage("https://raw.githubusercontent.com/evilmancala/CT20/refs/heads/main/glittertest.png");
+
+}
+
+function setup() {
+  createCanvas(windowWidth, windowHeight, WEBGL);
+  angleMode(DEGREES);
+  
+}
+
+function draw() { 
+noCursor();
+background("plum"); image(bg,-370,-360,1000,1000,0,0,windowWidth,windowHeight,CONTAIN);
+
+  let h = hour();
+  let m = minute();
+  let s = second();
+
+  strokeWeight(10);
+  noSmooth();
+  stroke("cornflowerblue");
+  noFill();
+  let seconds = map(s, 0, 60, 0, 360);
+  arc(25, 25, 400, 400, 0, seconds);
+
+  stroke("hotpink");
+  noSmooth();
+  let minutes = map(m, 0, 60, 0, 360);
+  arc(25, 25, 350, 350, 0, minutes);
+
+  stroke("ghostwhite");
+  noSmooth();
+  let hours = map(h % 12, 0, 12, 0, 360);
+  arc(25, 25, 300, 300, 0, hours);
+  
+noStroke();
+fill("ghostwhite");
+circle(25,25,250);
+  }
